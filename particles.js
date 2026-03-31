@@ -3,6 +3,7 @@
    ============================================ */
 
 const canvas = document.getElementById('particle-canvas');
+if (canvas) {
 const ctx = canvas.getContext('2d', { alpha: true });
 
 let width, height;
@@ -121,3 +122,4 @@ function animate() {
 }
 
 animate();
+}

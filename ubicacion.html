@@ -66,8 +66,12 @@
         </div>
     </nav>
 
-    <div class="oaxaca-bg-gradient"></div>
-    <canvas id="particle-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+    <div class="palette-container" style="position: fixed; inset: 0; z-index: -3; pointer-events: none; overflow: hidden;">
+        <div class="oaxaca-bg-gradient palette-0 active"></div>
+        <div class="oaxaca-bg-gradient palette-1"></div>
+        <div class="oaxaca-bg-gradient palette-2"></div>
+        <div class="oaxaca-bg-gradient palette-3"></div>
+    </div>
 
     <!-- Location Section -->
     <section id="location" class="location-section" style="padding-top: 100px;">
@@ -77,7 +81,7 @@
             
             <!-- ===================== DESTINO 1: OAXACA ===================== -->
             <div class="destination-block" style="margin-bottom: var(--space-5xl);">
-                <div class="location-card">
+                <div class="location-card" data-palette="0">
                     <div class="map-container">
                         <iframe src="https://maps.google.com/maps?q=Ignacio+Comonfort+113,+Guelaguetza,+Oaxaca+de+Juárez&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
@@ -106,7 +110,7 @@
                     <p>Disfruta de una de las ciudades más hermosas de México.</p>
                     
                     <div class="oaxaca-gallery">
-                        <article class="oaxaca-card" data-aos="fade-up">
+                        <article class="oaxaca-card" data-aos="fade-up" data-palette="1">
                             <img src="assets/oaxaca/templo.jpg" alt="Templo de Santo Domingo" class="oaxaca-img">
                             <div class="oaxaca-card-content">
                                 <h4>Templo de Santo Domingo de Guzmán</h4>
@@ -114,7 +118,7 @@
                             </div>
                         </article>
 
-                        <article class="oaxaca-card" data-aos="fade-up" data-delay="100">
+                        <article class="oaxaca-card" data-aos="fade-up" data-delay="100" data-palette="2">
                             <img src="assets/oaxaca/explanada.png" alt="Explanada de Santo Domingo" class="oaxaca-img">
                             <div class="oaxaca-card-content">
                                 <h4>La Explanada y Los Agaves</h4>
@@ -122,7 +126,7 @@
                             </div>
                         </article>
 
-                        <article class="oaxaca-card" data-aos="fade-up" data-delay="200">
+                        <article class="oaxaca-card" data-aos="fade-up" data-delay="200" data-palette="3">
                             <img src="assets/oaxaca/guelaguetza.jpg" alt="La Guelaguetza" class="oaxaca-img">
                             <div class="oaxaca-card-content">
                                 <h4>Folclore y Guelaguetza</h4>

@@ -776,6 +776,27 @@ function initPWA() {
 // OAXACA SCROLL COLORS
 // ============================================
 function initOaxacaScrollColors() {
-    // Deshabilitado para permitir que nuestro fondo Apple Music por CSS brille.
-    return;
+    if (!document.body.classList.contains('theme-oaxaca')) return;
+
+    const palettes = document.querySelectorAll('.oaxaca-bg-gradient[class*="palette-"]');
+    if (palettes.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const paletteIndex = entry.target.dataset.palette;
+                palettes.forEach(p => {
+                    if (p.classList.contains(`palette-${paletteIndex}`)) {
+                        p.classList.add('active');
+                    } else {
+                        p.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }, {
+        rootMargin: '-30% 0px -30% 0px'
+    });
+
+    document.querySelectorAll('[data-palette]').forEach(card => observer.observe(card));
 }
