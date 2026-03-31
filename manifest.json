@@ -4,8 +4,8 @@
     "description": "Confirma tu asistencia a la Comida de Graduación 2026",
     "start_url": "./index.html",
     "display": "standalone",
-    "background_color": "#fbfbfd",
-    "theme_color": "#0071e3",
+    "background_color": "#000000",
+    "theme_color": "#0a84ff",
     "orientation": "portrait-primary",
     "scope": "./",
     "icons": [
