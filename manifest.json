@@ -1,0 +1,28 @@
+{
+    "name": "Comida de Graduación 2026",
+    "short_name": "Graduación",
+    "description": "Confirma tu asistencia a la Comida de Graduación 2026",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#fbfbfd",
+    "theme_color": "#0071e3",
+    "orientation": "portrait-primary",
+    "scope": "./",
+    "icons": [
+        {
+            "src": "icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["social", "lifestyle"],
+    "lang": "es",
+    "dir": "ltr"
+}
