@@ -6,8 +6,13 @@ const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d', { alpha: true });
 
 let width, height;
-// Colores de Google/Microsoft incluyendo morado original de Antigravity
-const colors = ['#F25022', '#7FBA00', '#00A4EF', '#FFB900', '#BF5AF2'];
+// Colores de Google/Microsoft originales de Antigravity
+let colors = ['#F25022', '#7FBA00', '#00A4EF', '#FFB900', '#BF5AF2'];
+
+// Si estamos en la página de Ubicación (Tema Oaxaqueño), usamos colores cálidos vibrantes
+if (document.body.classList.contains('theme-oaxaca')) {
+    colors = ['#E83E8C', '#FFAA00', '#FFD700', '#E23D75', '#FF7F50']; 
+}
 
 function resize() {
     width = window.innerWidth;

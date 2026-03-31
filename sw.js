@@ -3,7 +3,7 @@
    Comida de Graduación 2026 - PWA
    ============================================ */
 
-const CACHE_NAME = 'graduacion-v8';
+const CACHE_NAME = 'graduacion-v9';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
@@ -14,6 +14,9 @@ const ASSETS_TO_CACHE = [
     './manifest.json',
     './icons/icon-192.png',
     './icons/icon-512.png',
+    './assets/oaxaca/templo.jpg',
+    './assets/oaxaca/explanada.png',
+    './assets/oaxaca/guelaguetza.jpg',
     'https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap'
 ];
 
