@@ -155,7 +155,7 @@ input, select, textarea {
     right: 0;
     z-index: 1000;
     height: var(--nav-height);
-    background: rgba(251, 251, 253, 0.72);
+    background: rgba(28, 28, 30, 0.72);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     border-bottom: 1px solid var(--color-border);
@@ -268,7 +268,7 @@ input, select, textarea {
     display: none;
     flex-direction: column;
     padding: var(--space-lg);
-    background: rgba(251, 251, 253, 0.96);
+    background: rgba(28, 28, 30, 0.96);
     backdrop-filter: saturate(180%) blur(20px);
     border-bottom: 1px solid var(--color-border);
 }

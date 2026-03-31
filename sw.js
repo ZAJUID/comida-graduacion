@@ -3,7 +3,7 @@
    Comida de Graduación 2026 - PWA
    ============================================ */
 
-const CACHE_NAME = 'graduacion-v2';
+const CACHE_NAME = 'graduacion-v3';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
