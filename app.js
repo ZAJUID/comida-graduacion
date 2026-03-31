@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initGalleryUpload();
     initLightbox();
     initPWA();
+    initOaxacaScrollColors();
     loadGuests();
     loadGallery();
 });
@@ -768,5 +769,56 @@ function initPWA() {
         // Clear the deferredPrompt so it can be garbage collected
         deferredPrompt = null;
         console.log('PWA was installed');
+    });
+}
+
+// ============================================
+// OAXACA SCROLL COLORS
+// ============================================
+function initOaxacaScrollColors() {
+    if (!document.body.classList.contains('theme-oaxaca')) return;
+
+    // Define color stops (RGB format)
+    const colorStops = [
+        { progress: 0.0, color: [22, 18, 20] },   // Start: #161214 (Dark Base/Oscuro)
+        { progress: 0.2, color: [61, 16, 34] },   // Templo: #3D1022 (Dark Magenta)
+        { progress: 0.5, color: [11, 27, 61] },   // Explanada: #0B1B3D (Dark Sapphire)
+        { progress: 0.75, color: [51, 31, 0] },   // Guelaguetza: Oscuro Marigold
+        { progress: 1.0, color: [0, 45, 38] }     // Puerto Escondido: #002D26 (Dark Teal)
+    ];
+
+    window.addEventListener('scroll', () => {
+        // Calculate scroll progress (0 to 1)
+        const maxScroll = Math.max(0, document.body.scrollHeight - window.innerHeight);
+        if (maxScroll <= 0) return;
+        
+        const currentScroll = window.scrollY;
+        const progress = Math.min(1, Math.max(0, currentScroll / maxScroll));
+
+        // Find the two stops we are between
+        let startStop = colorStops[0];
+        let endStop = colorStops[colorStops.length - 1];
+
+        for (let i = 0; i < colorStops.length - 1; i++) {
+            if (progress >= colorStops[i].progress && progress <= colorStops[i+1].progress) {
+                startStop = colorStops[i];
+                endStop = colorStops[i+1];
+                break;
+            }
+        }
+
+        // Interpolate between start and end
+        const range = endStop.progress - startStop.progress;
+        const subProgress = range === 0 ? 0 : ((progress - startStop.progress) / range);
+
+        const r = Math.round(startStop.color[0] + (endStop.color[0] - startStop.color[0]) * subProgress);
+        const g = Math.round(startStop.color[1] + (endStop.color[1] - startStop.color[1]) * subProgress);
+        const b = Math.round(startStop.color[2] + (endStop.color[2] - startStop.color[2]) * subProgress);
+
+        // Apply dynamically to --color-bg-alt
+        document.body.style.setProperty('--color-bg-alt', `rgb(${r}, ${g}, ${b})`);
+        
+        // Change body background property explicitly so that particles.js and other components overlapping background look perfect.
+        document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     });
 }
