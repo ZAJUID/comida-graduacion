@@ -1414,7 +1414,15 @@ body.theme-oaxaca .map-btn.google:hover {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: all var(--transition-slow);
+    /* Apple style smooth entrance animation properties */
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+}
+
+.oaxaca-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .oaxaca-card:hover {
