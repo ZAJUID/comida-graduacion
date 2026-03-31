@@ -1358,9 +1358,37 @@ body.theme-oaxaca {
     --color-accent: #E83E8C; /* Rosa Mexicano (Fucsia Mágico) */
     --color-accent-hover: #D81B60; /* Fucsia Fuerte */
 
-    /* Un leve toque de calidez de fondo en vez del gris azulado */
-    --color-bg-alt: #161214; 
-    --color-surface: #1e191b;
+    /* Un leve toque de calidez y fondos translúcidos para el difuminado dinámico */
+    --color-bg: transparent;
+    --color-bg-alt: transparent; 
+    --color-surface: rgba(15, 10, 10, 0.3);
+    --color-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto de fondo difuminado de colores mezclados estilo Apple Music */
+.oaxaca-bg-gradient {
+    position: fixed;
+    inset: -10%;
+    width: 120%;
+    height: 120%;
+    z-index: -3;
+    background-color: #59160a;
+    background-image: 
+        radial-gradient(circle at 10% 20%, #ff6f00 0%, transparent 55%),
+        radial-gradient(circle at 90% 10%, #850000 0%, transparent 55%),
+        radial-gradient(circle at 10% 80%, #300200 0%, transparent 55%),
+        radial-gradient(circle at 90% 90%, #687343 0%, transparent 55%),
+        radial-gradient(circle at 50% 60%, #cc290a 0%, transparent 60%);
+    filter: blur(90px);
+    animation: oaxacaGradientMix 15s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes oaxacaGradientMix {
+    0% { transform: rotate(0deg) scale(1) translate(0%, 0%); }
+    33% { transform: rotate(5deg) scale(1.05) translate(2%, 2%); }
+    66% { transform: rotate(-3deg) scale(0.95) translate(-2%, 3%); }
+    100% { transform: rotate(0deg) scale(1) translate(0%, -2%); }
 }
 
 body.theme-oaxaca .map-btn.google {
