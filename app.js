@@ -795,7 +795,7 @@ function initOaxacaScrollColors() {
             }
         });
     }, {
-        rootMargin: '-30% 0px -30% 0px'
+        rootMargin: '-10% 0px -10% 0px'
     });
 
     document.querySelectorAll('[data-palette]').forEach(card => observer.observe(card));
