@@ -143,16 +143,18 @@ function initScrollAnimations() {
     });
 
     // Animated counter for guest count
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter();
-                counterObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
+    if (DOM.guestCount) {
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
 
-    counterObserver.observe(DOM.guestCount);
+        counterObserver.observe(DOM.guestCount);
+    }
 }
 
 function animateCounter() {
@@ -185,6 +187,8 @@ function animateCounter() {
 // REGISTRATION FORM
 // ============================================
 function initForm() {
+    if (!DOM.form) return;
+    
     DOM.form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -209,6 +213,8 @@ function initForm() {
 // PROFILE PHOTO
 // ============================================
 function initProfilePhoto() {
+    if (!DOM.profilePhotoDropzone) return;
+
     // Click dropzone to open file picker
     DOM.profilePhotoDropzone.addEventListener('click', () => {
         DOM.profilePhotoInput.click();
@@ -400,6 +406,8 @@ function closeModal() {
 // LOAD GUESTS
 // ============================================
 async function loadGuests() {
+    if (!DOM.guestsLoading) return;
+    
     DOM.guestsLoading.classList.remove('hidden');
     DOM.guestsEmpty.classList.add('hidden');
     DOM.guestsGrid.innerHTML = '';
@@ -476,6 +484,8 @@ function escapeHtml(text) {
 // PHOTO GALLERY
 // ============================================
 function initGalleryUpload() {
+    if (!DOM.uploadZone) return;
+    
     // Click to upload
     DOM.uploadZone.addEventListener('click', () => {
         DOM.photoInput.click();
@@ -603,6 +613,8 @@ function addPhotoToGallery(url) {
 }
 
 async function loadGallery() {
+    if (!DOM.galleryLoading) return;
+    
     DOM.galleryLoading.classList.remove('hidden');
     DOM.galleryEmpty.classList.add('hidden');
 
@@ -637,6 +649,8 @@ async function loadGallery() {
 // LIGHTBOX
 // ============================================
 function initLightbox() {
+    if (!DOM.lightboxClose) return;
+
     DOM.lightboxClose.addEventListener('click', closeLightbox);
     DOM.lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
     DOM.lightboxNext.addEventListener('click', () => navigateLightbox(1));
