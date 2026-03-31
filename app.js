@@ -700,34 +700,52 @@ function initPWA() {
         });
     }
 
-    // Handle install prompt
-    window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent Chrome 67 and earlier from automatically showing the prompt
-        e.preventDefault();
-        // Stash the event so it can be triggered later.
-        deferredPrompt = e;
-        // Update UI to notify the user they can add to home screen
+    // Detect if device is iOS since it doesn't support beforeinstallprompt
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if (isIOS) {
+        // Apple devices require manual installation via Share button
         if (DOM.installBtn) DOM.installBtn.classList.remove('hidden');
         if (DOM.mobileInstallBtn) DOM.mobileInstallBtn.classList.remove('hidden');
-    });
-
-    const handleInstallClick = async () => {
-        if (DOM.installBtn) DOM.installBtn.classList.add('hidden');
-        if (DOM.mobileInstallBtn) DOM.mobileInstallBtn.classList.add('hidden');
         
-        if (deferredPrompt) {
-            // Show the install prompt
-            deferredPrompt.prompt();
-            // Wait for the user to respond to the prompt
-            const { outcome } = await deferredPrompt.userChoice;
-            console.log(`User response to the install prompt: ${outcome}`);
-            // We've used the prompt, and can't use it again, throw it away
-            deferredPrompt = null;
-        }
-    };
+        const showIOSInstructions = (e) => {
+            e.preventDefault();
+            alert('Para instalar en iPhone/iPad:\n\n1. Toca el botón "Compartir" (⍐) en la barra inferior de Safari.\n2. Elige "Agregar a Inicio" en el menú (+).\n3. Confirma dándole a "Agregar".');
+        };
 
-    if (DOM.installBtn) DOM.installBtn.addEventListener('click', handleInstallClick);
-    if (DOM.mobileInstallBtn) DOM.mobileInstallBtn.addEventListener('click', handleInstallClick);
+        if (DOM.installBtn) DOM.installBtn.addEventListener('click', showIOSInstructions);
+        if (DOM.mobileInstallBtn) DOM.mobileInstallBtn.addEventListener('click', showIOSInstructions);
+    } else {
+        // Handle install prompt for Android/Desktop
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            deferredPrompt = e;
+            // Update UI to notify the user they can add to home screen
+            if (DOM.installBtn) DOM.installBtn.classList.remove('hidden');
+            if (DOM.mobileInstallBtn) DOM.mobileInstallBtn.classList.remove('hidden');
+        });
+
+        const handleInstallClick = async (e) => {
+            e.preventDefault();
+            if (DOM.installBtn) DOM.installBtn.classList.add('hidden');
+            if (DOM.mobileInstallBtn) DOM.mobileInstallBtn.classList.add('hidden');
+            
+            if (deferredPrompt) {
+                // Show the install prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                // We've used the prompt, and can't use it again, throw it away
+                deferredPrompt = null;
+            }
+        };
+
+        if (DOM.installBtn) DOM.installBtn.addEventListener('click', handleInstallClick);
+        if (DOM.mobileInstallBtn) DOM.mobileInstallBtn.addEventListener('click', handleInstallClick);
+    }
 
     window.addEventListener('appinstalled', () => {
         // Hide the app-provided install promotion
