@@ -7,7 +7,7 @@
 const CONFIG = {
     GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbyeADCYM0XpLcfH4nHVrIzgJtp0lMHCvcZu4tk81vbttQU1FCOUQsB3ejmZzlCI8ixn/exec',
     IMGBB_API_URL: 'https://api.imgbb.com/1/upload',
-    IMGBB_API_KEY: '', // User needs to add their imgbb API key here
+    IMGBB_API_KEY: '23e0b9aad76f3be8e66fdfbe89f46a04',
 };
 
 // --- DOM Elements ---
