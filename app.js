@@ -40,6 +40,8 @@ const DOM = {
     lightboxNext: document.getElementById('lightbox-next'),
     installBtn: document.getElementById('install-btn'),
     mobileInstallBtn: document.getElementById('mobile-install-btn'),
+    partnerLogoIpnSource: document.getElementById('partner-logo-ipn-source'),
+    partnerLogoIpnCanvas: document.getElementById('partner-logo-ipn-canvas'),
     // Profile photo elements
     profilePhotoDropzone: document.getElementById('profile-photo-dropzone'),
     profilePhotoInput: document.getElementById('profile-photo-input'),
@@ -67,10 +69,65 @@ document.addEventListener('DOMContentLoaded', () => {
     initGalleryUpload();
     initLightbox();
     initPWA();
+    initPartnerLogoIpn();
     initOaxacaScrollColors();
     loadGuests();
     loadGallery();
 });
+
+function initPartnerLogoIpn() {
+    if (!DOM.partnerLogoIpnSource || !DOM.partnerLogoIpnCanvas) return;
+
+    const renderLogo = () => {
+        const source = DOM.partnerLogoIpnSource;
+        if (!source.naturalWidth || !source.naturalHeight) return;
+
+        const dpr = Math.max(1, window.devicePixelRatio || 1);
+        const targetWidth = Math.min(260, source.naturalWidth);
+        const targetHeight = Math.round((source.naturalHeight / source.naturalWidth) * targetWidth);
+        const canvas = DOM.partnerLogoIpnCanvas;
+        const context = canvas.getContext('2d', { willReadFrequently: true });
+
+        canvas.width = Math.round(targetWidth * dpr);
+        canvas.height = Math.round(targetHeight * dpr);
+        canvas.style.width = `${targetWidth}px`;
+        canvas.style.height = `${targetHeight}px`;
+
+        context.setTransform(dpr, 0, 0, dpr, 0, 0);
+        context.clearRect(0, 0, targetWidth, targetHeight);
+        context.imageSmoothingEnabled = true;
+        context.imageSmoothingQuality = 'high';
+        context.drawImage(source, 0, 0, targetWidth, targetHeight);
+
+        const imageData = context.getImageData(0, 0, targetWidth, targetHeight);
+        const pixels = imageData.data;
+
+        for (let index = 0; index < pixels.length; index += 4) {
+            const red = pixels[index];
+            const green = pixels[index + 1];
+            const blue = pixels[index + 2];
+            const alpha = pixels[index + 3];
+
+            if (alpha === 0) continue;
+
+            const isDarkNeutral = red < 120 && green < 120 && blue < 120 && Math.abs(red - green) < 18 && Math.abs(green - blue) < 18;
+
+            if (isDarkNeutral) {
+                pixels[index] = 245;
+                pixels[index + 1] = 245;
+                pixels[index + 2] = 247;
+            }
+        }
+
+        context.putImageData(imageData, 0, 0);
+    };
+
+    if (DOM.partnerLogoIpnSource.complete) {
+        renderLogo();
+    } else {
+        DOM.partnerLogoIpnSource.addEventListener('load', renderLogo, { once: true });
+    }
+}
 
 // ============================================
 // NAVIGATION

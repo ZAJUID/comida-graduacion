@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transporte - Graduación 2026</title>
+    <meta name="description" content="Opciones de transporte para la Comida de Graduación. Agosto 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="stylesheet" href="styles.css?v=6">
+</head>
+
+<body class="theme-transport">
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="index.html#hero" class="nav-logo" aria-label="Inicio">
+                <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                    style="vertical-align: middle;">
+                    <defs>
+                        <linearGradient id="ms-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#F25022" />
+                            <stop offset="33%" stop-color="#7FBA00" />
+                            <stop offset="66%" stop-color="#00A4EF" />
+                            <stop offset="100%" stop-color="#FFB900" />
+                        </linearGradient>
+                    </defs>
+                    <text x="50" y="85" font-family="Inter, sans-serif" font-weight="900" font-size="70"
+                        fill="url(#ms-grad-1)" text-anchor="middle" letter-spacing="-2">Z</text>
+                    <polygon points="50,12 80,24 50,36 20,24" fill="#1d1d1f" />
+                    <path d="M 32,28 V 38 C 32,44 68,44 68,38 V 28 Z" fill="#1d1d1f" />
+                    <path d="M 50,24 Q 70,24 85,42" fill="none" stroke="#FFB900" stroke-width="2.5" />
+                    <circle cx="50" cy="24" r="3" fill="#F25022" />
+                </svg>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#details" class="nav-link">Detalles</a>
+                <a href="transport.html" class="nav-link">Transporte</a>
+                <a href="ubicacion.html" class="nav-link">Ubicación</a>
+                <a href="index.html#gallery" class="nav-link">Galería</a>
+                <a href="index.html#register" class="nav-link">Registro</a>
+                <a href="index.html#guests" class="nav-link">Confirmados</a>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <button id="install-btn" class="nav-link install-btn hidden">Instalar App</button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="index.html#details" class="mobile-link">Detalles</a>
+            <a href="transport.html" class="mobile-link">Transporte</a>
+            <a href="ubicacion.html" class="mobile-link">Ubicación</a>
+            <a href="index.html#gallery" class="mobile-link">Galería</a>
+            <a href="index.html#register" class="mobile-link">Registro</a>
+            <a href="index.html#guests" class="mobile-link">Confirmados</a>
+            <button id="mobile-install-btn" class="mobile-link install-btn hidden">Instalar App</button>
+        </div>
+    </nav>
+
+    <section id="transport" class="transport-section" style="padding-top: 100px;">
+        <div class="section-container">
+            <p class="section-eyebrow">Medios de Transporte</p>
+            <h2 class="section-title">Opciones para llegar<br>desde CDMX.</h2>
+            <p class="section-description transport-description">Estas salidas son ejemplos para el <strong>21 de agosto de 2026</strong> (un día antes del evento). Los precios pueden cambiar según disponibilidad y tarifa.</p>
+
+            <div class="transport-block transport-land">
+                <h3 class="transport-block-title">Por tierra (ADO y AU)</h3>
+                <p class="transport-source">Consulta más horarios en <a href="https://www.ado.com.mx/" target="_blank" rel="noreferrer">ado.com.mx</a>.</p>
+                <div class="transport-grid">
+                <article class="transport-card">
+                    <div class="transport-header">
+                        <span class="transport-brand transport-brand-ado">ADO</span>
+                        <span class="transport-type">Directo a Oaxaca</span>
+                    </div>
+                    <div class="transport-route">
+                        <p class="transport-time">08:00 h</p>
+                        <p class="transport-path">21 ago 2026 · México TAPO → Oaxaca</p>
+                        <p class="transport-arrival">Llega 15:00 h</p>
+                    </div>
+                    <div class="transport-prices">
+                        <div>
+                            <p class="transport-price-label">Precio regular</p>
+                            <p class="transport-price">$966 MXN</p>
+                        </div>
+                        <div>
+                            <p class="transport-price-label">Con descuento estudiante</p>
+                            <p class="transport-price transport-price-discount">$483 MXN</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="transport-card">
+                    <div class="transport-header">
+                        <span class="transport-brand transport-brand-au">AU</span>
+                        <span class="transport-type">Llega a Oaxaca periférico</span>
+                    </div>
+                    <div class="transport-route">
+                        <p class="transport-time">08:30 h</p>
+                        <p class="transport-path">21 ago 2026 · México TAPO → Oaxaca periférico</p>
+                        <p class="transport-arrival">Llega 16:05 h</p>
+                    </div>
+                    <div class="transport-prices">
+                        <div>
+                            <p class="transport-price-label">Precio regular</p>
+                            <p class="transport-price">$666 MXN</p>
+                        </div>
+                        <div>
+                            <p class="transport-price-label">Con descuento estudiante</p>
+                            <p class="transport-price transport-price-discount">$333 MXN</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="transport-card">
+                    <div class="transport-header">
+                        <span class="transport-brand transport-brand-au">AU</span>
+                        <span class="transport-type">Llega a AU Santa Rosa</span>
+                    </div>
+                    <div class="transport-route">
+                        <p class="transport-time">09:33 h</p>
+                        <p class="transport-path">21 ago 2026 · México TAPO → Oaxaca AU Santa Rosa</p>
+                        <p class="transport-arrival">Llega 16:28 h</p>
+                    </div>
+                    <div class="transport-prices transport-prices-single">
+                        <div>
+                            <p class="transport-price-label">Precio mostrado (ejemplo)</p>
+                            <p class="transport-price">$656 MXN</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="transport-card">
+                    <div class="transport-header">
+                        <span class="transport-brand transport-brand-au">AU</span>
+                        <span class="transport-type">Llega a AU Santa Rosa</span>
+                    </div>
+                    <div class="transport-route">
+                        <p class="transport-time">11:00 h</p>
+                        <p class="transport-path">21 ago 2026 · México TAPO → Oaxaca AU Santa Rosa</p>
+                        <p class="transport-arrival">Llega 18:10 h</p>
+                    </div>
+                    <div class="transport-prices">
+                        <div>
+                            <p class="transport-price-label">Precio regular (ejemplo)</p>
+                            <p class="transport-price">$656 MXN</p>
+                        </div>
+                        <div>
+                            <p class="transport-price-label">Con descuento estudiante (50%)</p>
+                            <p class="transport-price transport-price-discount">$328 MXN</p>
+                        </div>
+                    </div>
+                </article>
+                </div>
+            </div>
+
+            <div class="transport-block-transition" aria-hidden="true"></div>
+
+            <div class="transport-block transport-air">
+                <h3 class="transport-block-title">Por aire (Viva Aerobus)</h3>
+                <p class="transport-source">Consulta más horarios en <a href="https://www.vivaaerobus.com/es-mx/" target="_blank" rel="noreferrer">Sitio Oficial Viva Aerobus</a>.</p>
+                <div class="transport-grid">
+                <article class="transport-card">
+                    <div class="transport-header">
+                        <span class="transport-brand transport-brand-viva">VIVA</span>
+                        <span class="transport-type">Vuelo directo</span>
+                    </div>
+                    <div class="transport-route">
+                        <p class="transport-time">11:00 AM</p>
+                        <p class="transport-path">21 ago 2026 · MEX → OAX</p>
+                        <p class="transport-arrival">Llega 12:05 PM · Duración 1 h 5 min</p>
+                    </div>
+                    <div class="transport-prices transport-prices-single">
+                        <div>
+                            <p class="transport-price-label">Tarifa ejemplo</p>
+                            <p class="transport-price">$1,515 MXN</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="transport-card">
+                    <div class="transport-header">
+                        <span class="transport-brand transport-brand-viva">VIVA</span>
+                        <span class="transport-type">Conexión en MTY</span>
+                    </div>
+                    <div class="transport-route">
+                        <p class="transport-time">09:25 AM</p>
+                        <p class="transport-path">21 ago 2026 · MEX → MTY → OAX</p>
+                        <p class="transport-arrival">Llega 3:00 PM · Duración 5 h 35 min</p>
+                    </div>
+                    <div class="transport-prices transport-prices-single">
+                        <div>
+                            <p class="transport-price-label">Tarifa ejemplo</p>
+                            <p class="transport-price">$1,627 MXN</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="transport-card">
+                    <div class="transport-header">
+                        <span class="transport-brand transport-brand-viva">VIVA</span>
+                        <span class="transport-type">Conexión en MTY</span>
+                    </div>
+                    <div class="transport-route">
+                        <p class="transport-time">08:45 AM</p>
+                        <p class="transport-path">21 ago 2026 · MEX → MTY → OAX</p>
+                        <p class="transport-arrival">Llega 3:00 PM · Duración 6 h 15 min</p>
+                    </div>
+                    <div class="transport-prices transport-prices-single">
+                        <div>
+                            <p class="transport-price-label">Tarifa ejemplo</p>
+                            <p class="transport-price">$1,437 MXN</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="transport-card">
+                    <div class="transport-header">
+                        <span class="transport-brand transport-brand-viva">VIVA</span>
+                        <span class="transport-type">Conexión en MTY</span>
+                    </div>
+                    <div class="transport-route">
+                        <p class="transport-time">07:25 AM</p>
+                        <p class="transport-path">21 ago 2026 · MEX → MTY → OAX</p>
+                        <p class="transport-arrival">Llega 3:00 PM · Duración 7 h 35 min</p>
+                    </div>
+                    <div class="transport-prices transport-prices-single">
+                        <div>
+                            <p class="transport-price-label">Tarifa ejemplo</p>
+                            <p class="transport-price">$1,437 MXN</p>
+                        </div>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="footer">
+        <div class="footer-container">
+            <div class="footer-emoji">
+                <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                    style="vertical-align: middle;">
+                    <defs>
+                        <linearGradient id="ms-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#F25022" />
+                            <stop offset="33%" stop-color="#7FBA00" />
+                            <stop offset="66%" stop-color="#00A4EF" />
+                            <stop offset="100%" stop-color="#FFB900" />
+                        </linearGradient>
+                    </defs>
+                    <text x="50" y="85" font-family="Inter, sans-serif" font-weight="900" font-size="70"
+                        fill="url(#ms-grad-2)" text-anchor="middle" letter-spacing="-2">Z</text>
+                    <polygon points="50,12 80,24 50,36 20,24" fill="#1d1d1f" />
+                    <path d="M 32,28 V 38 C 32,44 68,44 68,38 V 28 Z" fill="#1d1d1f" />
+                    <path d="M 50,24 Q 70,24 85,42" fill="none" stroke="#FFB900" stroke-width="2.5" />
+                    <circle cx="50" cy="24" r="3" fill="#F25022" />
+                </svg>
+            </div>
+            <p class="footer-text">Comida de Graduación 2026</p>
+            <p class="footer-subtext">Celebrando juntos este gran logro</p>
+        </div>
+    </footer>
+
+    <script src="particles.js?v=2"></script>
+    <script src="app.js?v=2"></script>
+</body>
+
+</html>
