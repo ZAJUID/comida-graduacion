@@ -857,3 +857,26 @@ function initOaxacaScrollColors() {
 
     document.querySelectorAll('[data-palette]').forEach(card => observer.observe(card));
 }
+
+// --- Mark Active Navigation Link ---
+function markActiveNavLink() {
+    // Get current page name (index, transport, ubicacion, tematica)
+    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+    let currentPage = 'index';
+    
+    if (currentFile.includes('transport')) currentPage = 'transport';
+    else if (currentFile.includes('ubicacion')) currentPage = 'ubicacion';
+    else if (currentFile.includes('tematica')) currentPage = 'tematica';
+    
+    // Mark all nav links
+    document.querySelectorAll('.nav-link[data-page], .mobile-link[data-page]').forEach(link => {
+        if (link.dataset.page === currentPage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+// Call on page load
+document.addEventListener('DOMContentLoaded', markActiveNavLink);

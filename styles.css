@@ -216,6 +216,15 @@ input, select, textarea {
     transform: scaleX(1);
 }
 
+.nav-link.active {
+    color: var(--color-text-primary);
+}
+
+.nav-link.active::after {
+    background: #ffffff;
+    transform: scaleX(1);
+}
+
 .install-btn {
     background: var(--color-accent);
     color: #fff;
