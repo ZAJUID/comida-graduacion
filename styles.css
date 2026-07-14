@@ -487,6 +487,19 @@ input, select, textarea {
     transform: translateY(20px);
 }
 
+.detail-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.detail-card-link:hover {
+    border-color: var(--color-accent, #0a84ff);
+    box-shadow: var(--shadow-lg), 0 0 0 1px var(--color-accent, #0a84ff);
+    transform: translateY(-4px);
+}
+
 .detail-card.visible {
     opacity: 1;
     transform: translateY(0);
