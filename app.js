@@ -835,7 +835,7 @@ function initPWA() {
 function initOaxacaScrollColors() {
     if (!document.body.classList.contains('theme-oaxaca')) return;
 
-    const palettes = document.querySelectorAll('.oaxaca-bg-gradient[class*="palette-"]');
+    const palettes = document.querySelectorAll('.oaxaca-bg-gradient[class*="palette-"], .tematica-bg-gradient[class*="tematica-palette-"]');
     if (palettes.length === 0) return;
 
     const observer = new IntersectionObserver((entries) => {
@@ -843,7 +843,12 @@ function initOaxacaScrollColors() {
             if (entry.isIntersecting) {
                 const paletteIndex = entry.target.dataset.palette;
                 palettes.forEach(p => {
-                    if (p.classList.contains(`palette-${paletteIndex}`)) {
+                    // Check for oaxaca palette
+                    const isOaxacaPalette = p.classList.contains(`palette-${paletteIndex}`);
+                    // Check for tematica palette
+                    const isTematicaPalette = p.classList.contains(`tematica-palette-${paletteIndex}`);
+                    
+                    if (isOaxacaPalette || isTematicaPalette) {
                         p.classList.add('active');
                     } else {
                         p.classList.remove('active');

@@ -2173,48 +2173,52 @@ body.theme-tematica {
     opacity: 1;
 }
 
-/* Paleta 0: Purple & Neon Cyan */
+/* Paleta 0: Negro profundo con detalles Cyan Neón */
 .tematica-palette-0 {
-    background-color: #0a0015;
+    background-color: #000000;
     background-image: 
-        radial-gradient(circle at 10% 20%, #9d00ff 0%, transparent 55%),
-        radial-gradient(circle at 90% 10%, #00d9ff 0%, transparent 55%),
-        radial-gradient(circle at 10% 80%, #7b2cbf 0%, transparent 55%),
-        radial-gradient(circle at 90% 90%, #5a189a 0%, transparent 55%),
-        radial-gradient(circle at 50% 60%, #c77dff 0%, transparent 60%);
+        radial-gradient(circle at 10% 20%, #00d9ff 0%, transparent 60%),
+        radial-gradient(circle at 90% 10%, #00ffff 0%, transparent 60%),
+        radial-gradient(circle at 10% 80%, #0099ff 0%, transparent 60%),
+        radial-gradient(circle at 90% 90%, #007acc 0%, transparent 60%),
+        radial-gradient(circle at 50% 60%, #00a8ff 0%, transparent 70%);
+    filter: brightness(0.95);
 }
 
-/* Paleta 1: Deep Purple & Electric Blue */
+/* Paleta 1: Negro con detalles Morado & Azul */
 .tematica-palette-1 {
-    background-color: #1a0033;
+    background-color: #000000;
     background-image: 
-        radial-gradient(circle at 10% 20%, #b100ff 0%, transparent 55%),
-        radial-gradient(circle at 90% 10%, #0080ff 0%, transparent 55%),
-        radial-gradient(circle at 10% 80%, #6a0dad 0%, transparent 55%),
-        radial-gradient(circle at 90% 90%, #00ffff 0%, transparent 55%),
-        radial-gradient(circle at 50% 60%, #8b00ff 0%, transparent 60%);
+        radial-gradient(circle at 10% 20%, #9d00ff 0%, transparent 60%),
+        radial-gradient(circle at 90% 10%, #0080ff 0%, transparent 60%),
+        radial-gradient(circle at 10% 80%, #7b2cbf 0%, transparent 60%),
+        radial-gradient(circle at 90% 90%, #00d9ff 0%, transparent 60%),
+        radial-gradient(circle at 50% 60%, #6a0dad 0%, transparent 70%);
+    filter: brightness(0.95);
 }
 
-/* Paleta 2: Violet & Cyan */
+/* Paleta 2: Negro con detalles Magenta & Cyan */
 .tematica-palette-2 {
-    background-color: #0d001f;
+    background-color: #000000;
     background-image: 
-        radial-gradient(circle at 10% 20%, #da70d6 0%, transparent 55%),
-        radial-gradient(circle at 90% 10%, #00e5ff 0%, transparent 55%),
-        radial-gradient(circle at 10% 80%, #9d4edd 0%, transparent 55%),
-        radial-gradient(circle at 90% 90%, #3a86ff 0%, transparent 55%),
-        radial-gradient(circle at 50% 60%, #c239b3 0%, transparent 60%);
+        radial-gradient(circle at 10% 20%, #ff1493 0%, transparent 60%),
+        radial-gradient(circle at 90% 10%, #00e5ff 0%, transparent 60%),
+        radial-gradient(circle at 10% 80%, #e500ff 0%, transparent 60%),
+        radial-gradient(circle at 90% 90%, #3a86ff 0%, transparent 60%),
+        radial-gradient(circle at 50% 60%, #00ffff 0%, transparent 70%);
+    filter: brightness(0.95);
 }
 
-/* Paleta 3: Magenta & Neon Blue */
+/* Paleta 3: Negro con detalles Purpura & Azul Neón */
 .tematica-palette-3 {
-    background-color: #16003b;
+    background-color: #000000;
     background-image: 
-        radial-gradient(circle at 10% 20%, #ff00ff 0%, transparent 55%),
-        radial-gradient(circle at 90% 10%, #00d4ff 0%, transparent 55%),
-        radial-gradient(circle at 10% 80%, #e500ff 0%, transparent 55%),
-        radial-gradient(circle at 90% 90%, #0099ff 0%, transparent 55%),
-        radial-gradient(circle at 50% 60%, #ff1493 0%, transparent 60%);
+        radial-gradient(circle at 10% 20%, #b100ff 0%, transparent 60%),
+        radial-gradient(circle at 90% 10%, #00d4ff 0%, transparent 60%),
+        radial-gradient(circle at 10% 80%, #a855f7 0%, transparent 60%),
+        radial-gradient(circle at 90% 90%, #0099ff 0%, transparent 60%),
+        radial-gradient(circle at 50% 60%, #7b2cbf 0%, transparent 70%);
+    filter: brightness(0.95);
 }
 
 @keyframes tematicaGradientMix {
