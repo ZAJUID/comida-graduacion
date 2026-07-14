@@ -1842,87 +1842,302 @@ body.theme-oaxaca .map-btn.google:hover {
 }
 
 /* ============================================
-   TEMÁTICA 80s - Styles
+   TEMÁTICA 80s - Diseño Apple Inspired
    ============================================ */
 
-.tematica-content {
-    margin-top: var(--space-4xl);
+/* Hero Section */
+.tematica-hero {
+    padding: var(--space-4xl) 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
 }
 
-.tematica-section {
-    margin-bottom: var(--space-4xl);
+.tematica-hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
 }
 
-.tematica-subtitle {
-    font-size: 24px;
-    font-weight: var(--font-weight-semibold);
+.tematica-hero-text {
+    animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tematica-hero-title {
+    font-size: clamp(44px, 10vw, 60px);
+    font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
-    margin-bottom: var(--space-lg);
-    letter-spacing: -0.01em;
+    margin: var(--space-md) 0 var(--space-lg);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 
-.tematica-list {
-    list-style: none;
-    padding: 0;
+.tematica-hero-subtitle {
+    font-size: 18px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 500px;
     margin: 0;
 }
 
-.tematica-list li {
-    font-size: 17px;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-md);
-    line-height: 1.6;
-    padding-left: var(--space-lg);
-    position: relative;
+.tematica-hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
-.tematica-list li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
-    font-weight: var(--font-weight-semibold);
-}
-
-.tematica-options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-xl);
-    margin-top: var(--space-xl);
-}
-
-.tematica-option {
-    background: rgba(10, 132, 255, 0.08);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: var(--space-xl);
+.tematica-placeholder-large {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, rgba(157, 0, 255, 0.2) 0%, rgba(0, 217, 255, 0.2) 100%);
+    border: 2px solid;
+    border-image: linear-gradient(135deg, #9d00ff 0%, #00d9ff 50%, #ff1493 100%) 1;
+    border-radius: var(--radius-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    color: var(--color-text-primary);
     transition: all var(--transition-slow);
 }
 
-.tematica-option:hover {
-    border-color: var(--color-accent);
-    box-shadow: var(--shadow-lg);
-    background: rgba(10, 132, 255, 0.12);
+.tematica-placeholder-large:hover {
+    box-shadow: 0 0 40px rgba(0, 217, 255, 0.3), 0 0 20px rgba(157, 0, 255, 0.2);
 }
 
-.tematica-option-title {
-    font-size: 18px;
+/* Features Grid */
+.tematica-features {
+    padding: var(--space-5xl) 0;
+}
+
+.tematica-section-title {
+    font-size: clamp(32px, 8vw, 48px);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-4xl);
+    letter-spacing: -0.01em;
+    text-align: center;
+}
+
+.tematica-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-2xl);
+}
+
+.tematica-feature-card {
+    padding: var(--space-2xl);
+    border-radius: var(--radius-2xl);
+    background: rgba(15, 10, 20, 0.5);
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    transition: all var(--transition-slow);
+    position: relative;
+    overflow: hidden;
+}
+
+.tematica-feature-card h3 {
+    font-size: 24px;
     font-weight: var(--font-weight-semibold);
-    color: var(--color-accent);
-    margin-bottom: var(--space-sm);
-    margin-top: 0;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-md);
 }
 
-.tematica-option-desc {
+.tematica-feature-card p {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Gradientes para las tarjetas */
+.tematica-gradient-1 {
+    border-image: linear-gradient(135deg, #00d9ff 0%, #00ffff 100%) 1;
+}
+
+.tematica-gradient-1:hover {
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.4), inset 0 0 20px rgba(0, 217, 255, 0.1);
+}
+
+.tematica-gradient-2 {
+    border-image: linear-gradient(135deg, #9d00ff 0%, #00d9ff 100%) 1;
+}
+
+.tematica-gradient-2:hover {
+    box-shadow: 0 0 30px rgba(157, 0, 255, 0.4), inset 0 0 20px rgba(157, 0, 255, 0.1);
+}
+
+.tematica-gradient-3 {
+    border-image: linear-gradient(135deg, #ff1493 0%, #9d00ff 100%) 1;
+}
+
+.tematica-gradient-3:hover {
+    box-shadow: 0 0 30px rgba(255, 20, 147, 0.4), inset 0 0 20px rgba(255, 20, 147, 0.1);
+}
+
+/* Looks Section */
+.tematica-looks {
+    padding: var(--space-5xl) 0;
+}
+
+.tematica-looks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-2xl);
+}
+
+.tematica-look-card {
+    background: rgba(15, 10, 20, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    transition: all var(--transition-slow);
+    display: flex;
+    flex-direction: column;
+}
+
+.tematica-look-card:hover {
+    border-color: #00D9FF;
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
+    transform: translateY(-8px);
+}
+
+.tematica-look-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, rgba(157, 0, 255, 0.15) 0%, rgba(0, 217, 255, 0.15) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tematica-look-content {
+    padding: var(--space-2xl);
+    flex: 1;
+}
+
+.tematica-look-content h3 {
+    font-size: 20px;
+    font-weight: var(--font-weight-semibold);
+    color: #00D9FF;
+    margin: 0 0 var(--space-md);
+}
+
+.tematica-look-content p {
     font-size: 15px;
     color: var(--color-text-secondary);
     line-height: 1.6;
     margin: 0;
 }
 
+/* Galería */
+.tematica-gallery {
+    padding: var(--space-5xl) 0;
+}
+
+.tematica-gallery-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-3xl);
+}
+
+.tematica-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+}
+
+.tematica-gallery-placeholder {
+    aspect-ratio: 1;
+    background: rgba(157, 0, 255, 0.1);
+    border: 2px dashed rgba(0, 217, 255, 0.5);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: var(--space-xl);
+}
+
+.tematica-gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-slow);
+}
+
+.tematica-gallery-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.4);
+}
+
+/* Tips Section */
+.tematica-tips {
+    padding: var(--space-5xl) 0;
+}
+
+.tematica-tips-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-2xl);
+}
+
+.tematica-tip {
+    padding: var(--space-2xl);
+    background: rgba(15, 10, 20, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-slow);
+}
+
+.tematica-tip:hover {
+    border-color: #00D9FF;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+}
+
+.tematica-tip h3 {
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-sm);
+}
+
+.tematica-tip p {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .tematica-options {
+    .tematica-hero-content {
         grid-template-columns: 1fr;
+    }
+    
+    .tematica-hero-title {
+        font-size: clamp(32px, 8vw, 44px);
+    }
+    
+    .tematica-features-grid,
+    .tematica-looks-grid,
+    .tematica-tips-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .tematica-feature-card,
+    .tematica-look-card {
+        padding: var(--space-lg);
     }
 }
 
@@ -2007,15 +2222,5 @@ body.theme-tematica {
     33% { transform: rotate(5deg) scale(1.05) translate(2%, 2%); }
     66% { transform: rotate(-3deg) scale(0.95) translate(-2%, 3%); }
     100% { transform: rotate(0deg) scale(1) translate(0%, -2%); }
-}
-
-body.theme-tematica .tematica-option {
-    background: rgba(157, 0, 255, 0.1);
-}
-
-body.theme-tematica .tematica-option:hover {
-    border-color: #00D9FF;
-    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
-    background: rgba(157, 0, 255, 0.15);
 }
 
