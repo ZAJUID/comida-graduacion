@@ -1615,6 +1615,14 @@ body.theme-transport {
         gap: var(--space-md);
     }
 
+    .partner-logo-microsoft {
+        width: min(140px, 36vw);
+    }
+
+    .partner-logo-ipn {
+        width: min(160px, 36vw);
+    }
+
     .transport-card {
         padding: var(--space-lg);
     }
