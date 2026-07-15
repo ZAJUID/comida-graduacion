@@ -338,13 +338,11 @@ function handleProfilePhotoSelect(file) {
 function validateForm() {
     const nombre = document.getElementById('nombre');
     const email = document.getElementById('email');
-    const carrera = document.getElementById('carrera');
     
     let isValid = true;
     
     if (!validateField(nombre)) isValid = false;
     if (!validateField(email)) isValid = false;
-    if (!validateField(carrera)) isValid = false;
     
     return isValid;
 }
@@ -403,7 +401,7 @@ async function submitRegistration() {
             nombre: document.getElementById('nombre').value.trim(),
             email: document.getElementById('email').value.trim(),
             telefono: document.getElementById('telefono').value.trim(),
-            carrera: document.getElementById('carrera').value.trim(),
+            carrera: '',
             acompanantes: document.getElementById('acompanantes').value,
             restricciones: document.getElementById('restricciones').value.trim(),
             mensaje: document.getElementById('mensaje').value.trim(),
@@ -516,7 +514,6 @@ function createGuestCard(guest, index) {
     card.innerHTML = `
         <div class="guest-avatar">${avatarContent}</div>
         <div class="guest-name">${escapeHtml(guest.nombre || 'Anónimo')}</div>
-        <div class="guest-carrera">${escapeHtml(guest.carrera || '')}</div>
         ${guest.mensaje ? `<div class="guest-message">"${escapeHtml(guest.mensaje)}"</div>` : ''}
     `;
     
@@ -762,7 +759,7 @@ function initPWA() {
     // Register Service Worker
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js?v=24')
+            navigator.serviceWorker.register('./sw.js?v=25')
                 .then((registration) => {
                     console.log('SW registered:', registration);
                 })
