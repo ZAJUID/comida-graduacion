@@ -16,7 +16,207 @@
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <link rel="stylesheet" href="styles.css?v=6">
+    <link rel="stylesheet" href="styles.css?v=24">
+    <style>
+        .theme-tematica {
+            background:
+                radial-gradient(1100px 560px at 10% -10%, rgba(10, 132, 255, 0.24), transparent 60%),
+                radial-gradient(900px 520px at 90% -5%, rgba(255, 45, 85, 0.20), transparent 60%),
+                #000;
+            color: #f5f5f7;
+        }
+
+        .theme-tematica .section-container {
+            max-width: 1120px;
+        }
+
+        .theme-tematica section {
+            padding: clamp(56px, 7vw, 108px) 0;
+            position: relative;
+        }
+
+        .theme-tematica .tematica-hero {
+            padding-top: 120px !important;
+        }
+
+        .theme-tematica .tematica-hero-content {
+            display: grid;
+            grid-template-columns: 1.06fr 0.94fr;
+            gap: clamp(24px, 4vw, 54px);
+            align-items: center;
+        }
+
+        .theme-tematica .section-eyebrow {
+            letter-spacing: 0.12em;
+            font-size: 12px;
+            color: rgba(245, 245, 247, 0.72);
+            margin-bottom: 14px;
+        }
+
+        .theme-tematica .tematica-hero-title {
+            font-family: 'SF Pro Display', 'Inter', sans-serif;
+            font-size: clamp(2.2rem, 7vw, 5.3rem);
+            font-weight: 700;
+            line-height: 0.94;
+            letter-spacing: -0.03em;
+            margin: 0 0 16px;
+            color: #fff;
+        }
+
+        .theme-tematica .tematica-hero-subtitle {
+            max-width: 62ch;
+            color: rgba(245, 245, 247, 0.80);
+            font-size: clamp(1rem, 1.6vw, 1.25rem);
+            line-height: 1.45;
+        }
+
+        .theme-tematica .tematica-hero-image {
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 26px 64px rgba(0, 0, 0, 0.45);
+            min-height: 340px;
+            background: #111;
+        }
+
+        .theme-tematica .tematica-hero-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 340px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .theme-tematica .tematica-placeholder-large,
+        .theme-tematica .tematica-gallery-placeholder,
+        .theme-tematica .tematica-look-placeholder {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            color: rgba(245, 245, 247, 0.9);
+            border-radius: 18px;
+        }
+
+        .theme-tematica .tematica-section-title {
+            font-size: clamp(1.9rem, 4.5vw, 3.3rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
+        }
+
+        .theme-tematica .tematica-gallery-subtitle {
+            color: rgba(245, 245, 247, 0.72);
+            font-size: 1.05rem;
+            margin-bottom: 26px;
+        }
+
+        .theme-tematica .tematica-features-grid,
+        .theme-tematica .tematica-looks-grid,
+        .theme-tematica .tematica-tips-content {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .theme-tematica .tematica-feature-card,
+        .theme-tematica .tematica-look-card,
+        .theme-tematica .tematica-tip {
+            background: rgba(28, 28, 30, 0.72);
+            backdrop-filter: blur(14px) saturate(160%);
+            -webkit-backdrop-filter: blur(14px) saturate(160%);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 20px;
+            padding: clamp(16px, 2.2vw, 24px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.26);
+            transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+        }
+
+        .theme-tematica .tematica-feature-card:hover,
+        .theme-tematica .tematica-look-card:hover,
+        .theme-tematica .tematica-tip:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.22);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
+        }
+
+        .theme-tematica .tematica-feature-card h3,
+        .theme-tematica .tematica-look-content h3,
+        .theme-tematica .tematica-tip h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .theme-tematica .tematica-feature-card p,
+        .theme-tematica .tematica-look-content p,
+        .theme-tematica .tematica-tip p {
+            margin: 0;
+            color: rgba(245, 245, 247, 0.75);
+            line-height: 1.48;
+            font-size: 0.98rem;
+        }
+
+        .theme-tematica .tematica-look-card {
+            display: grid;
+            grid-template-columns: 66px 1fr;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .theme-tematica .tematica-look-placeholder {
+            width: 66px;
+            height: 66px;
+            display: grid;
+            place-items: center;
+            font-size: 1.65rem;
+        }
+
+        .theme-tematica .tematica-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(10px, 2vw, 18px);
+        }
+
+        .theme-tematica .tematica-gallery-grid img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.30);
+            transition: transform 260ms ease, box-shadow 260ms ease;
+        }
+
+        .theme-tematica .tematica-gallery-grid img:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.38);
+        }
+
+        .theme-tematica .tematica-tips {
+            padding-bottom: clamp(72px, 10vw, 136px);
+        }
+
+        @media (max-width: 980px) {
+            .theme-tematica .tematica-hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .theme-tematica .tematica-features-grid,
+            .theme-tematica .tematica-looks-grid,
+            .theme-tematica .tematica-tips-content {
+                grid-template-columns: 1fr;
+            }
+
+            .theme-tematica .tematica-gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .theme-tematica .tematica-hero-image,
+            .theme-tematica .tematica-hero-image img {
+                min-height: 280px;
+            }
+        }
+    </style>
 </head>
 
 <body class="theme-tematica">
@@ -79,13 +279,11 @@
             <div class="tematica-hero-content">
                 <div class="tematica-hero-text">
                     <p class="section-eyebrow">Dress Code</p>
-                    <h1 class="tematica-hero-title">Vive la era más colorida.</h1>
-                    <p class="tematica-hero-subtitle">La moda de los 80s es sinónimo de diversión, color y actitud. Déjate inspirar y crea tu look retro perfecto.</p>
+                    <h1 class="tematica-hero-title">Sera la noche más colorida!!!!.</h1>
+                    <p class="tematica-hero-subtitle">La moda de los 80s es sinónimo de diversión, color y actitud, asi que crea tu look retro para la noche.</p>
                 </div>
                 <div class="tematica-hero-image">
-                    <div class="tematica-placeholder-large">
-                        <p>🕺💃<br>Looks 80s</p>
-                    </div>
+                    <img src="assets/Tematica/tem_4.jpg" alt="Inspiración principal de temática 80s" loading="eager">
                 </div>
             </div>
         </div>
@@ -218,12 +416,11 @@
     <section class="tematica-gallery" id="tematica-gallery" data-palette="0">
         <div class="section-container">
             <h2 class="tematica-section-title">Inspiración Visual</h2>
-            <p class="tematica-gallery-subtitle">Mira estos ejemplos para guiarte en tu vestimenta retro</p>
+            <p class="tematica-gallery-subtitle">Wacha estos ejemplos para guiarte en tu outfit retro</p>
             <div class="tematica-gallery-grid" id="tematica-gallery-grid">
-                <!-- Las imágenes se cargarán aquí desde assets/tematica/ -->
-                <div class="tematica-gallery-placeholder">
-                    <p>📸 Las imágenes aparecerán aquí</p>
-                </div>
+                <img src="assets/Tematica/tem_1.jpg" alt="Inspiración temática 80s 1" loading="lazy">
+                <img src="assets/Tematica/tem_2.jpg" alt="Inspiración temática 80s 2" loading="lazy">
+                <img src="assets/Tematica/tem_3.jpg" alt="Inspiración temática 80s 3" loading="lazy">
             </div>
         </div>
     </section>
@@ -253,10 +450,10 @@
         </div>
     </section>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=24"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js');
+            navigator.serviceWorker.register('./sw.js?v=24');
         }
     </script>
 </body>

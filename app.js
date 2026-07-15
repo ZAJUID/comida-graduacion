@@ -762,7 +762,7 @@ function initPWA() {
     // Register Service Worker
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
+            navigator.serviceWorker.register('./sw.js?v=24')
                 .then((registration) => {
                     console.log('SW registered:', registration);
                 })
@@ -835,7 +835,7 @@ function initPWA() {
 function initOaxacaScrollColors() {
     if (!document.body.classList.contains('theme-oaxaca')) return;
 
-    const palettes = document.querySelectorAll('.oaxaca-bg-gradient[class*="palette-"], .tematica-bg-gradient[class*="tematica-palette-"]');
+    const palettes = document.querySelectorAll('.oaxaca-bg-gradient[class*="palette-"]');
     if (palettes.length === 0) return;
 
     const observer = new IntersectionObserver((entries) => {
@@ -843,12 +843,7 @@ function initOaxacaScrollColors() {
             if (entry.isIntersecting) {
                 const paletteIndex = entry.target.dataset.palette;
                 palettes.forEach(p => {
-                    // Check for oaxaca palette
-                    const isOaxacaPalette = p.classList.contains(`palette-${paletteIndex}`);
-                    // Check for tematica palette
-                    const isTematicaPalette = p.classList.contains(`tematica-palette-${paletteIndex}`);
-                    
-                    if (isOaxacaPalette || isTematicaPalette) {
+                    if (p.classList.contains(`palette-${paletteIndex}`)) {
                         p.classList.add('active');
                     } else {
                         p.classList.remove('active');
@@ -862,26 +857,3 @@ function initOaxacaScrollColors() {
 
     document.querySelectorAll('[data-palette]').forEach(card => observer.observe(card));
 }
-
-// --- Mark Active Navigation Link ---
-function markActiveNavLink() {
-    // Get current page name (index, transport, ubicacion, tematica)
-    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-    let currentPage = 'index';
-    
-    if (currentFile.includes('transport')) currentPage = 'transport';
-    else if (currentFile.includes('ubicacion')) currentPage = 'ubicacion';
-    else if (currentFile.includes('tematica')) currentPage = 'tematica';
-    
-    // Mark all nav links
-    document.querySelectorAll('.nav-link[data-page], .mobile-link[data-page]').forEach(link => {
-        if (link.dataset.page === currentPage) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
-
-// Call on page load
-document.addEventListener('DOMContentLoaded', markActiveNavLink);
